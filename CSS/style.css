@@ -1,0 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #dad3f8;
+}
+
+::selection {
+    background: #6d50e2;
+    color: #fff;
+}
+
+.card {
+    max-width: 900px;
+    width: 100%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card h1 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-body {
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+
+.card-body input {
+    display: none;
+}
+
+.menu {
+    width: 200px;
+    position: relative;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu ul label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 25px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.menu .slider {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #6d50e2;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    z-index: 0;
+}
+
+#home:checked~.menu .slider {
+    top: 0;
+}
+
+#blog:checked~.menu .slider {
+    top: 70px;
+}
+
+#help:checked~.menu .slider {
+    top: 140px;
+}
+
+#code:checked~.menu .slider {
+    top: 210px;
+}
+
+#about:checked~.menu .slider {
+    top: 280px;
+}
+
+
+#home:checked~.menu ul label.home,
+#blog:checked~.menu ul label.blog,
+#help:checked~.menu ul label.help,
+#code:checked~.menu ul label.code,
+#about:checked~.menu ul label.about {
+    color: #fff;
+}
+
+.content {
+    flex: 1;
+    border-left: 2px solid #eee;
+    padding-left: 30px;
+    min-height: 350px;
+}
+
+.content>div {
+    display: none;
+    animation: fade 0.3s ease;
+}
+
+#home:checked~.content .home-text,
+#blog:checked~.content .blog-text,
+#help:checked~.content .help-text,
+#code:checked~.content .code-text,
+#about:checked~.content .about-text {
+    display: block;
+}
+
+.content h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.content p {
+    line-height: 1.6;
+    color: #555;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
